@@ -11,3 +11,10 @@ position = Vector2(477, 546)
 texture_normal = ExtResource("1_7ddr2")
 action = "Up"
 script = ExtResource("2_mhj8p")
+
+[node name="Timer" type="Timer" parent="TouchScreenButton"]
+process_callback = 0
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="TouchScreenButton/Timer" to="TouchScreenButton" method="_on_timer_timeout"]
