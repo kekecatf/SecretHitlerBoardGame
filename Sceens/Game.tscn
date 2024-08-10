@@ -1,0 +1,109 @@
+[gd_scene load_steps=11 format=3 uid="uid://c11qa7h5t5ube"]
+
+[ext_resource type="Texture2D" uid="uid://rwubvfgjy547" path="res://Assets/Cards/2.1.png" id="1_vicol"]
+[ext_resource type="Script" path="res://Scripts/TouchScreenButton.gd" id="2_5u0m7"]
+[ext_resource type="Script" path="res://Scripts/RoleCard2.gd" id="3_afoah"]
+[ext_resource type="Texture2D" uid="uid://061x03282y5n" path="res://Assets/Back2.png" id="3_my6ox"]
+
+[sub_resource type="Animation" id="Animation_5ylem"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.0001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(477, 546), Vector2(477, 520), Vector2(477, 546), Vector2(477, 546)]
+}
+
+[sub_resource type="Animation" id="Animation_31d16"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(477, 546)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3318f"]
+_data = {
+"Idle": SubResource("Animation_5ylem"),
+"RESET": SubResource("Animation_31d16")
+}
+
+[sub_resource type="Animation" id="Animation_ditbm"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(554, 546), Vector2(554, 526), Vector2(554, 546)]
+}
+
+[sub_resource type="Animation" id="Animation_6e3s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(554, 546)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2a31"]
+_data = {
+"Idle": SubResource("Animation_ditbm"),
+"RESET": SubResource("Animation_6e3s0")
+}
+
+[node name="Game" type="Node2D"]
+position = Vector2(-2, 0)
+
+[node name="RoleCard" type="TouchScreenButton" parent="."]
+position = Vector2(477, 546)
+texture_normal = ExtResource("1_vicol")
+action = "Up"
+script = ExtResource("2_5u0m7")
+
+[node name="AnimationKart" type="AnimationPlayer" parent="RoleCard"]
+libraries = {
+"": SubResource("AnimationLibrary_3318f")
+}
+
+[node name="RoleCard2" type="TouchScreenButton" parent="."]
+position = Vector2(554, 546)
+texture_normal = ExtResource("1_vicol")
+action = "Up"
+script = ExtResource("3_afoah")
+
+[node name="AnimationKart2" type="AnimationPlayer" parent="RoleCard2"]
+libraries = {
+"": SubResource("AnimationLibrary_n2a31")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(554, 208)
+rotation = -1.5708
+scale = Vector2(3.34066, 6.65714)
+texture = ExtResource("3_my6ox")
