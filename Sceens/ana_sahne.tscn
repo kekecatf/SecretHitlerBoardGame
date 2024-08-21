@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpgmjbpvx5too"]
+[gd_scene load_steps=3 format=3 uid="uid://bpgmjbpvx5too"]
 
 [ext_resource type="Script" path="res://Scripts/AnaSahne.gd" id="1_pk657"]
+[ext_resource type="PackedScene" uid="uid://buydf3fjwpbr3" path="res://Sceens/card.tscn" id="2_jij5m"]
 
 [node name="AnaSahne" type="Node2D"]
 script = ExtResource("1_pk657")
 
 [node name="Cardlar" type="Node2D" parent="."]
+
+[node name="Card" parent="." instance=ExtResource("2_jij5m")]
+asset_name = "Back1"
