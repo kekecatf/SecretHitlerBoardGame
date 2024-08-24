@@ -2,10 +2,10 @@ extends Node2D
 
 @onready var dokunmatik = $TouchScreenButton
 @onready var timer = $TouchScreenButton/Timer
-@export var asset_name: String = "3.1"
+@export var asset_name: String = "Zarf/Zarf.jpg"
 
 func _ready():
-	var texture_path = "res://Assets/Cards/" + asset_name + ".png"
+	var texture_path = "res://Assets/SecretHitlerAsset/" + asset_name
 	dokunmatik.texture_normal = load(texture_path)
 	pass 
 

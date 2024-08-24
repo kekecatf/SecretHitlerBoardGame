@@ -3,10 +3,11 @@
 [ext_resource type="Script" path="res://Scripts/Card.gd" id="1_u20ue"]
 
 [node name="Card" type="Node2D"]
-position = Vector2(512, 550)
+position = Vector2(320, 168)
 script = ExtResource("1_u20ue")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+scale = Vector2(0.03, 0.03)
 action = "Up"
 
 [node name="Timer" type="Timer" parent="TouchScreenButton"]
