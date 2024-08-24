@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpgmjbpvx5too"]
 
-[ext_resource type="Script" path="res://Scripts/AnaSahne.gd" id="1_pk657"]
-[ext_resource type="PackedScene" uid="uid://buydf3fjwpbr3" path="res://Sceens/card.tscn" id="2_jij5m"]
+[ext_resource type="Script" path="res://Scripts/ana_sahne.gd" id="1_sms48"]
+[ext_resource type="Texture2D" uid="uid://s5iw6ae1jbsr" path="res://icon.svg" id="3_4u2fg"]
 [ext_resource type="Texture2D" uid="uid://w24568k21f65" path="res://Assets/SecretHitlerAsset/ArkaPlan/httpssteamusercontentaakamaihdnetugc14619332984779925966328897CD50B4D2495D945EBCC03BF38B5A9038A.jpg" id="3_5ah6u"]
 
 [node name="AnaSahne" type="Node2D"]
-script = ExtResource("1_pk657")
+script = ExtResource("1_sms48")
 
 [node name="Arkaplan" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(0.28125, 0.267658)
 texture = ExtResource("3_5ah6u")
 
-[node name="Cardlar" type="Node2D" parent="."]
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(1000, 312)
+texture = ExtResource("3_4u2fg")
 
-[node name="Card" parent="." instance=ExtResource("2_jij5m")]
-position = Vector2(560, 528)
+[node name="Cardlar" type="Node2D" parent="."]

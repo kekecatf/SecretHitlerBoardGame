@@ -11,15 +11,14 @@ config_version=5
 [application]
 
 config/name="SecretHıtlerBoardGame"
-run/main_scene="res://Sceens/card.tscn"
+run/main_scene="res://Sceens/ana_sahne.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Assets/SecretHitlerAsset/PP.png"
 
 [file_customization]
 
 folder_colors={
 "res://Assets/": "red",
-"res://Assets/Cards/": "orange",
 "res://Scripts/": "orange"
 }
 
