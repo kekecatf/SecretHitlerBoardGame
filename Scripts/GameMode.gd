@@ -1,11 +1,17 @@
 extends Node2D
 
-var oyuncuSayisi = 10
+var oyuncuSayisi = 5  # Test için başlangıç değeri, bunu dinamik olarak ayarlayabilirsiniz.
+var rng = RandomNumberGenerator.new()
 var oyuncuRolleri = []
+var oyuncuKartlar = []
+
+# Oyuncuların bilgilerini tutmak için bir dizi
+var oyuncular = []
 
 func _ready():
+	rng.randomize()
 
-	# Oyuncu sayısına göre rollerin sayısı
+	# Oyuncu sayısına göre rollerin sayısını ayarlayın
 	if oyuncuSayisi == 5:
 		oyuncuRolleri = ["liberal", "liberal", "liberal", "fasist", "hitler"]
 	elif oyuncuSayisi == 6:
@@ -24,9 +30,17 @@ func _ready():
 	# Rolleri karıştırın
 	oyuncuRolleri.shuffle()
 
-	# Oyunculara roller atandı
+	# Oyunculara rastgele kartlar atamak için kart seti (örnek olarak 3 kart)
+	var kartSeti = ["kart1", "kart2", "kart3"]
+
+	# Oyunculara roller ve kartlar atayın
 	for i in range(oyuncuSayisi):
-		print("Oyuncu ", i + 1, " rolü: ", oyuncuRolleri[i])
+		var oyuncu = {
+			"rol": oyuncuRolleri[i],
+			"kart": kartSeti[rng.randi_range(0, kartSeti.size() - 1)]  # Rastgele bir kart seç
+		}
+		oyuncular.append(oyuncu)
+		print("Oyuncu ", i + 1, " rolü: ", oyuncular[i].rol, ", kartı: ", oyuncular[i].kart)
 
 func _process(delta):
 	pass
