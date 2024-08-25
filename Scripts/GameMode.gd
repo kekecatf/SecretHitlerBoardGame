@@ -1,26 +1,32 @@
 extends Node2D
 
-var oyuncuSayisi
-var rng = RandomNumberGenerator.new()
-var roller = ["liberal","fasist","hitler"]
-var rolSayi
-var rol
+var oyuncuSayisi = 10
+var oyuncuRolleri = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	rng.randomize()
-	rolSayi = rng.randi_range(0,3)
-	if rolSayi == 1:
-		rol = roller[0]
-		print(rol)
-	if rolSayi == 2:
-		rol = roller[1]
-		print(rol)
-	if rolSayi == 3:
-		rol = roller[2]
-		print(rol)
 
+	# Oyuncu sayısına göre rollerin sayısı
+	if oyuncuSayisi == 5:
+		oyuncuRolleri = ["liberal", "liberal", "liberal", "fasist", "hitler"]
+	elif oyuncuSayisi == 6:
+		oyuncuRolleri = ["liberal", "liberal", "liberal", "liberal", "fasist", "hitler"]
+	elif oyuncuSayisi == 7:
+		oyuncuRolleri = ["liberal", "liberal", "liberal", "liberal", "fasist", "fasist", "hitler"]
+	elif oyuncuSayisi == 8:
+		oyuncuRolleri = ["liberal", "liberal", "liberal", "liberal", "liberal", "fasist", "fasist", "hitler"]
+	elif oyuncuSayisi == 9:
+		oyuncuRolleri = ["liberal", "liberal", "liberal", "liberal", "liberal", "fasist", "fasist", "fasist", "hitler"]
+	elif oyuncuSayisi == 10:
+		oyuncuRolleri = ["liberal", "liberal", "liberal", "liberal", "liberal", "liberal", "fasist", "fasist", "fasist", "hitler"]
+	else:
+		print("Geçersiz oyuncu sayısı!")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	# Rolleri karıştırın
+	oyuncuRolleri.shuffle()
+
+	# Oyunculara roller atandı
+	for i in range(oyuncuSayisi):
+		print("Oyuncu ", i + 1, " rolü: ", oyuncuRolleri[i])
+
 func _process(delta):
 	pass
