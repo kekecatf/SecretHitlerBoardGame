@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://buydf3fjwpbr3"]
 
 [ext_resource type="Script" path="res://Scripts/Card.gd" id="1_u20ue"]
-[ext_resource type="Texture2D" uid="uid://idhbdmhcshvo" path="res://Assets/SecretHitlerAsset/Zarf/Zarf.jpg" id="2_or8pp"]
+[ext_resource type="Texture2D" uid="uid://cl54kfxkxfq01" path="res://Assets/SecretHitlerAsset/OyuncuRolleri/RollerArka.png" id="2_6p643"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgmln"]
 size = Vector2(3072, 3083.33)
@@ -12,7 +12,7 @@ script = ExtResource("1_u20ue")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.03, 0.043)
-texture = ExtResource("2_or8pp")
+texture = ExtResource("2_6p643")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 
