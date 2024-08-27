@@ -1,4 +1,5 @@
 extends Node2D
+#Card Scripti
 
 @onready var sprite = $Sprite2D
 @onready var timer = $TouchScreenButton/Timer

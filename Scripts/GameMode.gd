@@ -1,4 +1,5 @@
 extends Node2D
+#GameMode Scripti
 
 var oyuncuSayisi = 5  # Test için başlangıç değeri, bunu dinamik olarak ayarlayabilirsiniz.
 var rng = RandomNumberGenerator.new()
