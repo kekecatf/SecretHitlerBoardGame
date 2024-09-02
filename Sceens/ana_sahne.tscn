@@ -24,3 +24,5 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("3_5eweu")
 
 [node name="Cardlar" type="Node2D" parent="."]
+
+[node name="Oyuncular" type="Node2D" parent="."]
