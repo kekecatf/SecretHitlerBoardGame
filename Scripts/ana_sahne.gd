@@ -1,4 +1,5 @@
 extends Node2D
+#AnaSahne Scripti
 
 @onready var CardSceene = "res://Sceens/card.tscn"
 @onready var CardlarNode = $Cardlar
