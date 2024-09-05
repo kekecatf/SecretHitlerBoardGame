@@ -1,4 +1,5 @@
 extends Node2D
+#Oyuncu.gd
 
 # Oyuncunun bilgileri
 var rol = ""

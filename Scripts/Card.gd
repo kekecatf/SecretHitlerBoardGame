@@ -1,5 +1,5 @@
 extends Node2D
-# Card Scripti
+#Card.gd
 
 @onready var sprite = $Sprite2D
 @onready var timer = $TouchScreenButton/Timer
@@ -19,7 +19,9 @@ func _ready():
 	if texture:
 		sprite.texture = texture
 		_set_fixed_size(sprite)
-	pass 
+		
+	# Sprite boyutlandırıldıktan sonra rotasyonu uygula
+	sprite.rotation_degrees = rotation
 
 func _set_fixed_size(sprite: Sprite2D):
 	# Texture'nin orijinal boyutunu al

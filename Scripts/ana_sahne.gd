@@ -1,4 +1,5 @@
 extends Node2D
+#ana_sahne.gd
 
 @onready var CardSceene = "res://Sceens/card.tscn"
 @onready var CardlarNode = $Cardlar
@@ -23,5 +24,5 @@ func _ready():
 func _objeOlustur(objeYol, pos, rot, child):
 	var obje = load(objeYol).instantiate()
 	obje.position = pos
-	obje.rotation = rot
+	obje.rotation_degrees = rot  # rotasyon için derece kullanmak daha güvenli olabilir
 	child.add_child(obje)
