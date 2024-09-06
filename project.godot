@@ -15,6 +15,10 @@ run/main_scene="res://Sceens/ana_sahne.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://Assets/SecretHitlerAsset/PP.png"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [file_customization]
 
 folder_colors={

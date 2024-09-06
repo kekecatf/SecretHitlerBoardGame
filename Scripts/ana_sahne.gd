@@ -17,7 +17,7 @@ func _ready():
 
 	# Kart oluşturma kodları
 	_objeOlustur(CardSceene, position1, 0, CardlarNode)
-	_objeOlustur(CardSceene, position2, 110, CardlarNode)
+	_objeOlustur(CardSceene, position2, 90, CardlarNode)
 	_objeOlustur(CardSceene, position3, -180, CardlarNode)
 	_objeOlustur(CardSceene, position4, -270, CardlarNode)
 

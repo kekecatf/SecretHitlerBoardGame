@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bprr2hevp5d7b"
-path="res://.godot/imported/Zarf.jpg-8149a53284624a520ebbae4cfc13a276.ctex"
+uid="uid://idhbdmhcshvo"
+path="res://.godot/imported/Zarf.jpg-f27fb8504c87a79219a6c2602d958e92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SecretHitlerAsset/Zarf/Zarf.jpg"
-dest_files=["res://.godot/imported/Zarf.jpg-8149a53284624a520ebbae4cfc13a276.ctex"]
+source_file="res://Assets/SecretHitlerAsset/Zarf.jpg"
+dest_files=["res://.godot/imported/Zarf.jpg-f27fb8504c87a79219a6c2602d958e92.ctex"]
 
 [params]
 
