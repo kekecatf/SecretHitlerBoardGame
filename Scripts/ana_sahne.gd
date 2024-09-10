@@ -5,9 +5,9 @@ extends Node2D
 @onready var CardlarNode = $Cardlar
 
 # Pozisyonlar
-var position1 = Vector2(512,536)
+var position1 = Vector2(480,480)
 var position2 = Vector2(112,328)
-var position3 = Vector2(512,128)
+var position3 = Vector2(480,128)
 var position4 = Vector2(1000,312)
 
 func _ready():
