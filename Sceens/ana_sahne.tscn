@@ -26,3 +26,7 @@ texture = ExtResource("3_5eweu")
 [node name="Cardlar" type="Node2D" parent="."]
 
 [node name="Oyuncular" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+visible = false
+position = Vector2(500, 510)

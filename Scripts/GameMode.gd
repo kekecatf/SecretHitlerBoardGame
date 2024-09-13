@@ -1,31 +1,24 @@
 extends Node2D
 
-var oyuncuSayisi = 5  # Oyuncu sayısını dinamik olarak ayarlayabilirsiniz
-var rng = RandomNumberGenerator.new()
-var oyuncuRolleri = []
+var oyuncuSayisi = 5  # Dinamik oyuncu sayısı
+var oyuncuRolleri = []  # Roller
+var oyuncular = []  # Oyuncu listesi
 
-func _ready():
-	rng.randomize()
-
-	# Oyuncu sayısına göre rollerin sayısını ayarlayın
-	oyuncuRolleri = _rolDagitim(oyuncuSayisi)
-	
-	# Rolleri karıştırın
+# Roller atama fonksiyonu
+func oyuncuRollerini_ata():
+	# Oyuncu rollerini belirle
+	if oyuncuSayisi == 5:
+		oyuncuRolleri = ["liberal", "liberal", "liberal", "fasist", "hitler"]
+	# Daha fazla oyuncu sayısı için diğer roller
 	oyuncuRolleri.shuffle()
 
-func _rolDagitim(oyuncu_sayisi):
-	if oyuncu_sayisi == 5:
-		return ["liberal", "liberal", "liberal", "fasist", "hitler"]
-	elif oyuncu_sayisi == 6:
-		return ["liberal", "liberal", "liberal", "liberal", "fasist", "hitler"]
-	elif oyuncu_sayisi == 7:
-		return ["liberal", "liberal", "liberal", "liberal", "fasist", "fasist", "hitler"]
-	elif oyuncu_sayisi == 8:
-		return ["liberal", "liberal", "liberal", "liberal", "liberal", "fasist", "fasist", "hitler"]
-	elif oyuncu_sayisi == 9:
-		return ["liberal", "liberal", "liberal", "liberal", "liberal", "fasist", "fasist", "fasist", "hitler"]
-	elif oyuncu_sayisi == 10:
-		return ["liberal", "liberal", "liberal", "liberal", "liberal", "liberal", "fasist", "fasist", "fasist", "hitler"]
-	else:
-		print("Geçersiz oyuncu sayısı!")
-		return []
+	# Oyuncular oluşturuluyor
+	for i in range(oyuncuSayisi):
+		var oyuncu = { "rol": oyuncuRolleri[i], "parti": ("liberal" if oyuncuRolleri[i] == "liberal" else "fasist") }
+		oyuncular.append(oyuncu)
+	
+	print("Roller başarıyla atandı: ", oyuncular)
+
+# Oyuncu listesini döndürür
+func get_oyuncular():
+	return oyuncular
