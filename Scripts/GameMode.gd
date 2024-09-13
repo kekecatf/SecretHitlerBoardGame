@@ -1,4 +1,5 @@
 extends Node2D
+#GameMode Scripti
 
 var oyuncuSayisi = 5  # Dinamik oyuncu sayısı
 var oyuncuRolleri = []  # Roller

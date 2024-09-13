@@ -1,4 +1,5 @@
 extends Node2D
+# AnaSahne Scripti
 
 @onready var GameModeNode = preload("res://Sceens/game_mode.tscn")  # GameMode sahnesini yükle
 var GameMode = null  # GameMode referansı
@@ -22,42 +23,38 @@ func kartlari_oyuncuya_goster(oyuncu_index, rol):
 	
 	# Rol kartını oluştur
 	var rol_karti = load("res://Sceens/card.tscn").instantiate()
-	var button_rol = rol_karti.get_node("TouchScreenButton")
-	button_rol.texture_normal = load(_rolKartiniAl(rol))
+	rol_karti.asset_name = _rolKartiniAl(rol)  # Card scriptindeki asset_name değişkenine değer ata
 	rol_karti.position = base_position
 	add_child(rol_karti)
 
 	# Parti üyeliği kartını oluştur
 	var parti_karti = load("res://Sceens/card.tscn").instantiate()
-	var button_parti = parti_karti.get_node("TouchScreenButton")
-	button_parti.texture_normal = load(_partiKartiniAl(rol))
+	parti_karti.asset_name = _partiKartiniAl(rol)  # Card scriptindeki asset_name değişkenine değer ata
 	parti_karti.position = base_position + Vector2(offset_x, 0)
 	add_child(parti_karti)
 
 	# Evet oylama kartını oluştur
 	var evet_karti = load("res://Sceens/card.tscn").instantiate()
-	var button_evet = evet_karti.get_node("TouchScreenButton")
-	button_evet.texture_normal = load("res://Assets/SecretHitlerAsset/Oylar/Oylar.png")
+	evet_karti.asset_name = "Oylar/OyArka.png"  # Evet kartı için doğru asset'i ata
 	evet_karti.position = base_position + Vector2(offset_x * 2, 0)
 	add_child(evet_karti)
 
 	# Hayır oylama kartını oluştur
 	var hayir_karti = load("res://Sceens/card.tscn").instantiate()
-	var button_hayir = hayir_karti.get_node("TouchScreenButton")
-	button_hayir.texture_normal = load("res://Assets/SecretHitlerAsset/Oylar/Oylar.png")
+	hayir_karti.asset_name = "Oylar/OyArka.png"  # Hayır kartı için doğru asset'i ata
 	hayir_karti.position = base_position + Vector2(offset_x * 3, 0)
 	add_child(hayir_karti)
 
 func _rolKartiniAl(rol):
 	if rol == "liberal":
-		return "res://Assets/SecretHitlerAsset/OyuncuRolleri/RollerLib.png"
+		return "OyuncuRolleri/RollerLib.png"
 	elif rol == "fasist":
-		return "res://Assets/SecretHitlerAsset/OyuncuRolleri/RollerFas.png"
+		return "OyuncuRolleri/RollerFas.png"
 	elif rol == "hitler":
-		return "res://Assets/SecretHitlerAsset/OyuncuRolleri/RollerHit.png"
+		return "OyuncuRolleri/RollerHit.png"
 
 func _partiKartiniAl(rol):
 	if rol == "liberal":
-		return "res://Assets/SecretHitlerAsset/OyuncuRolleri/PartiUyeligiLib.png"
+		return "OyuncuRolleri/PartiUyeligiLib.png"
 	else:
-		return "res://Assets/SecretHitlerAsset/OyuncuRolleri/PartiUyeligiFas.png"
+		return "OyuncuRolleri/PartiUyeligiFas.png"
