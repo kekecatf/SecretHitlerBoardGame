@@ -35,13 +35,13 @@ func kartlari_oyuncuya_goster(oyuncu_index, rol):
 
 	# Evet oylama kartını oluştur
 	var evet_karti = load("res://Sceens/card.tscn").instantiate()
-	evet_karti.asset_name = "Oylar/OyArka.png"  # Evet kartı için doğru asset'i ata
+	evet_karti.asset_name = "Oylar/OylarEvet.png"  # Evet kartı için doğru asset'i ata
 	evet_karti.position = base_position + Vector2(offset_x * 2, 0)
 	add_child(evet_karti)
 
 	# Hayır oylama kartını oluştur
 	var hayir_karti = load("res://Sceens/card.tscn").instantiate()
-	hayir_karti.asset_name = "Oylar/OyArka.png"  # Hayır kartı için doğru asset'i ata
+	hayir_karti.asset_name = "Oylar/OylarHayir.png"  # Hayır kartı için doğru asset'i ata
 	hayir_karti.position = base_position + Vector2(offset_x * 3, 0)
 	add_child(hayir_karti)
 
