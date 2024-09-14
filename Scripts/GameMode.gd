@@ -1,9 +1,12 @@
 extends Node2D
-#GameMode Scripti
+# GameMode Scripti
 
 var oyuncuSayisi = 5  # Dinamik oyuncu sayısı
 var oyuncuRolleri = []  # Roller
 var oyuncular = []  # Oyuncu listesi
+
+# Oyuncu sahnesini preload edelim
+@onready var OyuncuScene = preload("res://Sceens/oyuncu.tscn")
 
 # Roller atama fonksiyonu
 func oyuncuRollerini_ata():
@@ -15,10 +18,18 @@ func oyuncuRollerini_ata():
 
 	# Oyuncular oluşturuluyor
 	for i in range(oyuncuSayisi):
-		var oyuncu = { "rol": oyuncuRolleri[i], "parti": ("liberal" if oyuncuRolleri[i] == "liberal" else "fasist") }
-		oyuncular.append(oyuncu)
+		# Oyuncu sahnesinden yeni bir instance oluştur
+		var oyuncu_instance = OyuncuScene.instantiate()
+		var rol = oyuncuRolleri[i]
+		var parti = "liberal" if rol == "liberal" else "fasist"
+
+		# Oyuncunun bilgilerini ayarla
+		oyuncu_instance.bilgileri_ayarla(rol, parti)
+
+		# Oyuncu instance'ını listeye ekle
+		oyuncular.append(oyuncu_instance)
 	
-	print("Roller başarıyla atandı: ", oyuncular)
+	print("Roller başarıyla atandı: ")
 
 # Oyuncu listesini döndürür
 func get_oyuncular():

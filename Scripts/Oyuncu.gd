@@ -11,3 +11,4 @@ var sansolye = false
 func bilgileri_ayarla(rol_bilgisi, parti_bilgisi):
 	rol = rol_bilgisi
 	parti_uyeligi = parti_bilgisi
+	print(rol," ",parti_uyeligi)
