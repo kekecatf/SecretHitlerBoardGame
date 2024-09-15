@@ -12,3 +12,4 @@ func _ready():
 
 	if texture:
 		button.texture_normal = texture  # Texture'yi TouchScreenButton'a ata
+	
