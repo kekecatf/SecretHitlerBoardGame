@@ -29,6 +29,9 @@ func kartlari_oyuncuya_goster(oyuncu_index, rol):
 	rol_karti.asset_name = _rolKartiniAl(rol)  # Card scriptindeki asset_name değişkenine değer ata
 	rol_karti.position = base_position
 	rol_karti.rotation = kart_rotasyonu
+	
+	var touchscreen_button = rol_karti.get_node("TouchScreenButton")
+
 	add_child(rol_karti)
 
 	# Parti üyeliği kartını oluştur
@@ -51,6 +54,7 @@ func kartlari_oyuncuya_goster(oyuncu_index, rol):
 	hayir_karti.position = base_position + Vector2(offset_x * 3, 0)
 	hayir_karti.rotation = kart_rotasyonu
 	add_child(hayir_karti)
+
 
 func _rolKartiniAl(rol):
 	if rol == "liberal":
