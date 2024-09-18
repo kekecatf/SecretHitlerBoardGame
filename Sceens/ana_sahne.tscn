@@ -28,4 +28,4 @@ texture = ExtResource("3_5eweu")
 [node name="Oyuncular" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1065, 284)
+position = Vector2(350, 630)

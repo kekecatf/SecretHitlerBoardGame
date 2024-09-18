@@ -20,18 +20,18 @@ func kartlari_olustur():
 		kartlari_oyuncuya_goster(i, rol)
 
 func kartlari_oyuncuya_goster(oyuncu_index, rol):
-	var offset_x = 50  # Kartların yan yana dizilmesi için x eksenindeki kaydırma miktarı
-	var base_position = kart_konumlar[oyuncu_index % len(kart_konumlar)]  # Oyuncu indexine göre konumu al
+	var offset_x = 50
+	var base_position = kart_konumlar[oyuncu_index % len(kart_konumlar)]
 	var kart_rotasyonu = kart_rotations[oyuncu_index % len(kart_konumlar)]
-	
+
 	# Rol kartını oluştur
 	var rol_karti = load("res://Sceens/card.tscn").instantiate()
-	rol_karti.asset_name = _rolKartiniAl(rol)  # Card scriptindeki asset_name değişkenine değer ata
+	rol_karti.asset_name = _rolKartiniAl(rol)  # Her karta rolünü atıyoruz
 	rol_karti.position = base_position
 	rol_karti.rotation = kart_rotasyonu
 	
-	var touchscreen_button = rol_karti.get_node("TouchScreenButton")
-
+	var touchscreen_buttonRol = rol_karti.get_node("TouchScreenButton")
+	touchscreen_buttonRol.connect("pressed", Callable(self, "_on_card_tiklandi").bind(rol))
 	add_child(rol_karti)
 
 	# Parti üyeliği kartını oluştur
@@ -39,15 +39,18 @@ func kartlari_oyuncuya_goster(oyuncu_index, rol):
 	parti_karti.asset_name = _partiKartiniAl(rol)  # Card scriptindeki asset_name değişkenine değer ata
 	parti_karti.position = base_position + Vector2(offset_x, 0)
 	parti_karti.rotation = kart_rotasyonu
+	
+	var touchscreen_buttonParti = rol_karti.get_node("TouchScreenButton")
+	touchscreen_buttonRol.connect("pressed", Callable(self, "_on_card_tiklandi").bind(parti_karti))
 	add_child(parti_karti)
-
+	
 	# Evet oylama kartını oluştur
 	var evet_karti = load("res://Sceens/card.tscn").instantiate()
 	evet_karti.asset_name = "Oylar/OylarEvet.png"  # Evet kartı için doğru asset'i ata
 	evet_karti.position = base_position + Vector2(offset_x * 2, 0)
 	evet_karti.rotation = kart_rotasyonu
 	add_child(evet_karti)
-
+	
 	# Hayır oylama kartını oluştur
 	var hayir_karti = load("res://Sceens/card.tscn").instantiate()
 	hayir_karti.asset_name = "Oylar/OylarHayir.png"  # Hayır kartı için doğru asset'i ata
@@ -55,6 +58,8 @@ func kartlari_oyuncuya_goster(oyuncu_index, rol):
 	hayir_karti.rotation = kart_rotasyonu
 	add_child(hayir_karti)
 
+func _on_card_tiklandi(rol):
+	print(rol + " kartı tıklandı!")
 
 func _rolKartiniAl(rol):
 	if rol == "liberal":
