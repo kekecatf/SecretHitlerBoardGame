@@ -6,20 +6,40 @@ var GameMode = null  # GameMode referansı
 var kart_konumlar = [Vector2(450, 550), Vector2(50, 250), Vector2(500, 50), Vector2(900, 300), Vector2(430,300)]  # Kartların konumları
 var kart_rotations = [0,90,-180,-90,0]
 
+var zarf_asset = "Zarf/Zarf1.jpg"  # Zarf asseti
+
 func _ready():
 	GameMode = GameModeNode.instantiate()  # GameMode sahnesinden bir örnek oluştur
 	add_child(GameMode)  # GameMode'u sahneye ekle
 	GameMode.oyuncuRollerini_ata()  # GameMode fonksiyonlarını çağır
 
-	kartlari_olustur()  # Kartları oluştur
+	zarf_olustur()  # Zarf oluşturma fonksiyonunu çağır
 
-func kartlari_olustur():
+func zarf_olustur():
 	var oyuncular = GameMode.get_oyuncular()
 	for i in range(len(oyuncular)):
-		var rol = oyuncular[i]["rol"]
-		kartlari_oyuncuya_goster(i, rol)
+		var zarf = load("res://Sceens/zarf.tscn").instantiate()  # Zarf sahnesini oluştur
+		zarf.position = kart_konumlar[i]  # Zarfı oyuncunun önüne koy
+		zarf.asset_name = zarf_asset  # Zarfın görselini ayarla
+		zarf.scale = Vector2(0.1,0.1)
+		var touchscreen_button = zarf.get_node("TouchScreenButton")
+		touchscreen_button.connect("pressed", Callable(self, "_on_zarf_tiklandi").bind(i))  # Zarf tıklanınca kartları gösterecek
+		add_child(zarf)
 
+# Zarf tıklandığında kartları gösterecek fonksiyon
+func _on_zarf_tiklandi(oyuncu_index):
+	# Zarfı kaldır
+	for child in get_children():
+		if child.position == kart_konumlar[oyuncu_index]:
+			child.queue_free()  # Zarfı sahneden kaldır
+	
+	# Kartları göster
+	var rol = GameMode.get_oyuncular()[oyuncu_index]["rol"]
+	kartlari_oyuncuya_goster(oyuncu_index, rol)
+
+# Kartları oluşturma fonksiyonu
 func kartlari_oyuncuya_goster(oyuncu_index, rol):
+	# Buradaki kart oluşturma kodları zaten mevcut
 	var offset_x = 50
 	var base_position = kart_konumlar[oyuncu_index % len(kart_konumlar)]
 	var kart_rotasyonu = kart_rotations[oyuncu_index % len(kart_konumlar)]

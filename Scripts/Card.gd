@@ -6,6 +6,7 @@ extends Node2D
 
 var is_dragging = false  # Kartın sürüklenip sürüklenmediğini takip eder
 var start_position = Vector2()  # Fare/dokunma başlangıç pozisyonu
+var drag_offset = Vector2()  # Sürükleme başlangıcındaki ofset
 
 # Dikdörtgen sınırları
 var rect_min = Vector2(350, 500)
@@ -28,20 +29,16 @@ func _input(event):
 		drag_card(event)
 
 func _on_card_pressed():
-	# Eğer kart pozisyonu belirtilen pozisyonlardan birindeyse sürüklemeyi başlat
-	if position == Vector2(450, 550) or position == Vector2(500, 550) or position == Vector2(550, 550) or position == Vector2(600, 550):
-		is_dragging = true
-		start_position = position  # Mevcut pozisyonu başlangıç pozisyonu olarak ayarla
-	else:
-		is_dragging = false  # Sürükleme başlatılmaz
-
+	# Kart basıldığında sürüklemeyi başlat
+	is_dragging = true
+	drag_offset = get_global_mouse_position() - position  # Sürükleme sırasında ofseti hesapla
 
 func _on_card_released():
 	is_dragging = false  # Sürüklemeyi bırak
 
 func drag_card(event):
 	# Kartın yeni pozisyonunu hesapla
-	var new_position = position + event.relative
+	var new_position = get_global_mouse_position() - drag_offset
 
 	# Dikdörtgenin sınırlarını kontrol et
 	if new_position.x < rect_min.x:

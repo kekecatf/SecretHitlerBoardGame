@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmeewphhthb4u"]
+
+[ext_resource type="Texture2D" uid="uid://bjqcug4v2gryr" path="res://Assets/SecretHitlerAsset/Zarf/Zarf1.jpg" id="1_aw78v"]
+[ext_resource type="Script" path="res://Scripts/zarf.gd" id="1_yvqid"]
+
+[node name="Zarf" type="Node2D"]
+script = ExtResource("1_yvqid")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+texture_normal = ExtResource("1_aw78v")
