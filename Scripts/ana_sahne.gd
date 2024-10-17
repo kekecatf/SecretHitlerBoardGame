@@ -3,8 +3,8 @@ extends Node2D
 
 @onready var GameModeNode = preload("res://Sceens/game_mode.tscn")  # GameMode sahnesini yükle
 var GameMode = null  # GameMode referansı
-var kart_konumlar = [Vector2(450, 550), Vector2(50, 250), Vector2(500, 50), Vector2(900, 300), Vector2(430,300)]  # Kartların konumları
-var kart_rotations = [0,90,-180,-90,0]
+var kart_konumlar = [Vector2(100,100), Vector2(300,100), Vector2(500,100), Vector2(700,100), Vector2(900,100), Vector2(100,300),Vector2(300,300), Vector2(500,300), Vector2(700,300), Vector2(900,300)]  # Kartların konumları
+var kart_rotations = [0,0,0,0,0,0,0,0,0,0]
 
 var zarf_asset = "Zarf/Zarf1.jpg"  # Zarf asseti
 
