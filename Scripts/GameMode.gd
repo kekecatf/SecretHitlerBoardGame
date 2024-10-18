@@ -4,6 +4,7 @@ extends Node2D
 var oyuncuSayisi = 10  # Dinamik oyuncu sayısı
 var oyuncuRolleri = []  # Roller
 var oyuncular = []  # Oyuncu listesi
+var ana_oyuncu
 
 # Oyuncu sahnesini preload edelim
 @onready var OyuncuScene = preload("res://Sceens/oyuncu.tscn")
@@ -25,7 +26,7 @@ func oyuncuRollerini_ata():
 		oyuncuRolleri = ["liberal", "liberal", "liberal","liberal","liberal","liberal", "fasist", "fasist", "fasist", "hitler"]
 	# Daha fazla oyuncu sayısı için diğer roller
 	oyuncuRolleri.shuffle()
-
+		
 	# Oyuncular oluşturuluyor
 	for i in range(oyuncuSayisi):
 		# Oyuncu sahnesinden yeni bir instance oluştur
