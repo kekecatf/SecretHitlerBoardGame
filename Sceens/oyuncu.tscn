@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb4f1t80w5qfn"]
-
-[ext_resource type="Script" path="res://Scripts/Oyuncu.gd" id="1_l6ff4"]
-
-[node name="Oyuncu" type="Node2D"]
-script = ExtResource("1_l6ff4")
