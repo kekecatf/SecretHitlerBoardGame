@@ -18,7 +18,11 @@ func _ready():
 	GameMode.oyuncuRollerini_ata()
 	Hitler = GameMode.hitler
 	print(GameMode.oyuncuRolleri)
-	GameMode.olmek(2)
+	
+	randomize()  # Rastgele sayı üreteciyi başlat
+	baskanlik = randi_range(0, GameMode.oyuncuSayisi -1)  # 1 ile 10 arasında rastgele bir sayı
+	print("İlk Başkan = ",baskanlik)
+
 
 func _process(delta: float):
 	if (fasist_yasa >= 4 and sansolyelik == Hitler) or (fasist_yasa == 6):

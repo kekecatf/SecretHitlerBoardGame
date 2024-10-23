@@ -4,6 +4,7 @@ var oyuncuSayisi = 5
 var Roller = []
 var oyuncuRolleri = []
 var oyuncuPartileri = []
+var kartinaBakilabilirmi = []
 
 var hitler:int
 
@@ -27,6 +28,7 @@ func oyuncuRollerini_ata():
 	
 	for i in range(oyuncuSayisi):
 		oyuncuRolleri.append(Roller[i])
+		kartinaBakilabilirmi.append(0)
 		if oyuncuRolleri[i] == "liberal":
 			oyuncuPartileri.append("liberal uyelik")
 		elif oyuncuRolleri[i] == "fasist":
@@ -45,13 +47,17 @@ func liberalZaferi():
 func fasistZaferi():
 	print("Fasistler Kazandi!")
 	
-
+	
 func olmek(x):
 	oyuncuRolleri.remove_at(x)
 	oyuncuPartileri.remove_at(x)
-	print(x,"Oyuncusu öldü")
+	print(x + 1,"Oyuncusu öldü")
 	print(oyuncuRolleri)
 	
 	if x == hitler:
 		print("Hitler öldü")
 		liberalZaferi()
+
+#if kartinaBakabilirmi[x] == 0
+func kartaBakma(x):
+	kartinaBakilabilirmi[x] = 1
