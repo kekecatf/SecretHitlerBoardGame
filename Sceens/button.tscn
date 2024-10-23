@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://dr8x1tadkyiw5"]
 
-[ext_resource type="Script" path="res://Scripts/kart.gd" id="1_liu5x"]
-[ext_resource type="Texture2D" uid="uid://bjqcug4v2gryr" path="res://SecretHitlerAsset/Zarf/Zarf1.jpg" id="2_3qv2j"]
+[ext_resource type="Script" path="res://Scripts/button.gd" id="1_uxaoq"]
+[ext_resource type="Texture2D" uid="uid://bjqcug4v2gryr" path="res://SecretHitlerAsset/Zarf/Zarf1.jpg" id="2_6gckg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rokat"]
 size = Vector2(1059, 1397.5)
 
-[node name="Kart" type="Area2D"]
-script = ExtResource("1_liu5x")
+[node name="Button" type="Area2D"]
+script = ExtResource("1_uxaoq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3qv2j")
+texture = ExtResource("2_6gckg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -2.75)
