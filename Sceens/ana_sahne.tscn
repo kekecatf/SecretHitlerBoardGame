@@ -10,3 +10,6 @@ script = ExtResource("1_2jcdp")
 position = Vector2(559, 322)
 scale = Vector2(0.27, 0.27)
 texture = ExtResource("2_553ud")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(500, 500)

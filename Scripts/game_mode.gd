@@ -36,7 +36,6 @@ func oyuncuRollerini_ata():
 		elif oyuncuRolleri[i] == "hitler":
 			hitler = i
 			oyuncuPartileri.append("fasist uyelik")
-			print("Hitler= ", hitler + 1)
 		print([i+1],oyuncuRolleri[i],"  " ,oyuncuPartileri[i])
 	
 #if (liberal_yasa == 6)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr8x1tadkyiw5"]
+
+[ext_resource type="Script" path="res://Scripts/kart.gd" id="1_liu5x"]
+[ext_resource type="Texture2D" uid="uid://bjqcug4v2gryr" path="res://SecretHitlerAsset/Zarf/Zarf1.jpg" id="2_3qv2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rokat"]
+size = Vector2(1059, 1397.5)
+
+[node name="Kart" type="Area2D"]
+script = ExtResource("1_liu5x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3qv2j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -2.75)
+shape = SubResource("RectangleShape2D_rokat")
