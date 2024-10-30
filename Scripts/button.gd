@@ -3,9 +3,15 @@ extends Area2D
 @onready var sprite = $Sprite2D
 var degisken = 3
 var son_pozisyon = Vector2()
+var game_mode = null  # GameMode referansı
+
+# GameMode'u ayarlama fonksiyonu
+func set_game_mode(mode):
+	game_mode = mode
 
 func _ready():
 	pass
+
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -22,19 +28,19 @@ func kart_tiklandi():
 	else:
 		son_pozisyon = self.position
 		queue_free()  # Zarfı sahneden kaldır
+		var game_mode = get_parent().get_parent()  # Ana sahneye ulaşmak için iki kez yukarı çık
+		var oyuncu_rolu = game_mode.oyuncuRolleri[0]  # İlk oyuncunun rolü
+		
 		for i in range(2):
 			var kart = load("res://Sceens/cart.tscn").instantiate()
 			kart.position = son_pozisyon + Vector2(i * 70, 0)
-			kart.scale = Vector2(0.08,0.08)
-			# Kartın sprite'ını değiştirin
-			if degisken == 3:
-				kart.asset_name = "Oylar/OylarEvet.png"
-				print("Degısken 3 ")
-			else:
-				kart.asset_name = "Oylar/OylarHayir.png"
-				print("degısken 3 degıl")
+			kart.scale = Vector2(0.08, 0.08)
+			
+			# Kartın rolünü ayarlayın
+			kart.set_role(oyuncu_rolu)
 			
 			get_parent().add_child(kart)
+
 
 func kartlari_dagit():
 	pass
