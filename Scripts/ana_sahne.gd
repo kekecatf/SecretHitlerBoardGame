@@ -19,7 +19,6 @@ func _ready():
 	GameMode = GameModeNode.instantiate()  # GameMode sahnesinden bir örnek oluştur
 	add_child(GameMode)  # GameMode'u sahneye ekle
 	
-
 	for i in range(5):
 		var button = load("res://Sceens/button.tscn").instantiate() 
 		button.position = dizi[i]
@@ -31,6 +30,8 @@ func _ready():
 	GameMode.oyuncuRollerini_ata()
 	Hitler = GameMode.hitler
 	print("Hitler= ",GameMode.hitler + 1)
+	
+	#GameMode.olmek(2)
 	
 	randomize()  # Rastgele sayı üreteciyi başlat
 	baskanlik = randi_range(0, GameMode.oyuncuSayisi -1)  # 1 ile 10 arasında rastgele bir sayı
