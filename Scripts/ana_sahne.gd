@@ -1,7 +1,6 @@
 extends Node2D
 
 #Kart çekme ve kart bırakma yerleri yapılacak
-
 @onready var GameModeNode = preload("res://Sceens/game_mode.tscn")  # GameMode sahnesini yükle
 var GameMode = null  # GameMode referansı
 
@@ -18,15 +17,14 @@ var dizi = [Vector2(500,550), Vector2(300,100), Vector2(500,100), Vector2(700,10
 func _ready():
 	GameMode = GameModeNode.instantiate()  # GameMode sahnesinden bir örnek oluştur
 	add_child(GameMode)  # GameMode'u sahneye ekle
+	GameManager.game_mode = GameMode  # Singleton'a GameMode referansı atanıyor
 	
 	for i in range(5):
 		var button = load("res://Sceens/button.tscn").instantiate() 
 		button.position = dizi[i]
 		button.scale = Vector2(0.13,0.13)
 		add_child(button)
-	#button.asset = "res://SecretHitlerAsset/Zarf/OyuncununZarf.png"
-
-	
+		
 	GameMode.oyuncuRollerini_ata()
 	Hitler = GameMode.hitler
 	print("Hitler= ",GameMode.hitler + 1)
