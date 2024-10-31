@@ -20,21 +20,40 @@ func _ready():
 		print("Texture yüklenemedi veya dosya yolu yanlış:", texture_path)
 
 
-func set_role(rol,part):
+func _rolKartiniAl(rol):
+	#if oyuncu_index==0:
+		#if rol == "liberal":
+			#return "OyuncuRolleri/RollerLib.png"
+		#elif rol == "fasist":
+			#return "OyuncuRolleri/RollerFas.png"
+		#elif rol == "hitler":
+			#return "OyuncuRolleri/RollerHit.png"
+	#else:
+		#if rol == "liberal":
+			#return "OyuncuRolleri/RollerArka.png"
+		#elif rol == "fasist":
+			#return "OyuncuRolleri/RollerArka.png"
+		#elif rol == "hitler":
+			#return "OyuncuRolleri/RollerArka.png"
 	if rol == "liberal":
-		asset_name ="RollerLib.png"
+		asset_name = "RollerLib.png"
 	elif rol == "fasist":
 		asset_name = "RollerFas.png"
 	elif rol == "hitler":
-		asset_name ="RollerHit.png"
+		asset_name = "RollerHit.png"
+
+func _partiKartiniAl(rol):
+	#if oyuncu_index == 0:
+		#if rol == "liberal":
+			#return "OyuncuRolleri/PartiUyeligiLib.png"
+		#else:
+			#return "OyuncuRolleri/PartiUyeligiFas.png"
+	#else:
+		#if rol == "liberal":
+			#return "OyuncuRolleri/PartiUyeligiArka.png"
+		#else:
+			#return "OyuncuRolleri/PartiUyeligiArka.png"
+	if rol == "liberal":
+		asset_name = "PartiUyeligiLib.png"
 	else:
-		print("Bilinmeyen rol:", rol)
-	
-	if part == "liberal uyelik":
-		asset_name ="PartiUyeligiLib.png"
-	elif part == "fasist uyelik":
 		asset_name = "PartiUyeligiFas.png"
-	elif part == "fasist uyelik":
-		asset_name ="PartiUyeligiFas.png"
-	else:
-		print("Bilinmeyen rol:", part)

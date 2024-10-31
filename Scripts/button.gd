@@ -28,15 +28,15 @@ func kart_tiklandi():
 	else:
 		son_pozisyon = self.position
 		queue_free()  # Zarfı sahneden kaldır
-		for i in range(2):
+		for i in range(GameManager.game_mode.oyuncuSayisi):
 			var oyuncu_rolu = GameManager.game_mode.oyuncuRolleri[i]  # Örneğin, ilk oyuncunun rolü
-			var oyuncu_parti = GameManager.game_mode.oyuncuPartileri[i]
 			var kart = load("res://Sceens/cart.tscn").instantiate()
 			kart.position = son_pozisyon + Vector2(i * 70, 0)
 			kart.scale = Vector2(0.08, 0.08)
 			
 			# Kartın rolünü ayarlayın
-			kart.set_role(oyuncu_rolu,oyuncu_parti)
+			kart._rolKartiniAl(oyuncu_rolu)
+			kart._partiKartiniAl(oyuncu_rolu)
 			
 			get_parent().add_child(kart)
 
