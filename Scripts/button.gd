@@ -39,7 +39,21 @@ func kart_tiklandi():
 	parti_kart.position = son_pozisyon + Vector2(70, 0)  # Mesafeyi ayarlayın (100 px sağa kaydırdık)
 	parti_kart.scale = Vector2(0.08, 0.08)
 	parti_kart._partiKartiniAl(oyuncu_rolu,oyuncu_id)  # Parti üyeliğini atayın
+	
+	# Oylama evet kartını oluştur
+	var oylama_evet_karti = load("res://Sceens/cart.tscn").instantiate()
+	oylama_evet_karti.position = son_pozisyon + Vector2(140,0)
+	oylama_evet_karti.scale = Vector2(0.08,0.08)
+	oylama_evet_karti._oylamaKartiEvetAl()
+
+	# Oylama hayir kartını oluştur
+	var oylama_hayir_karti = load("res://Sceens/cart.tscn").instantiate()
+	oylama_hayir_karti.position = son_pozisyon + Vector2(210,0)
+	oylama_hayir_karti.scale = Vector2(0.08,0.08)
+	oylama_hayir_karti._oylamaKartiHayirAl()
 
 	# Kartları sahneye ekle
 	get_parent().add_child(rol_kart)
 	get_parent().add_child(parti_kart)
+	get_parent().add_child(oylama_evet_karti)
+	get_parent().add_child(oylama_hayir_karti)

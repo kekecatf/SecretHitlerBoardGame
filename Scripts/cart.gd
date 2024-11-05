@@ -17,7 +17,7 @@ func _ready():
 		return
 
 	# asset_name yolunun geçerli bir texture olup olmadığını kontrol edin
-	var texture_path = "res://SecretHitlerAsset/OyuncuRolleri/" + asset_name
+	var texture_path = "res://SecretHitlerAsset/" + asset_name
 	var texture = load(texture_path)
 	if texture:
 		sprite.texture = texture  # Texture'yi TouchScreenButton'a ata
@@ -38,11 +38,11 @@ func _rolKartiniAl(rol,oyuncu_id):
 		#asset_name = "RollerArka.png"
 
 	if rol == "liberal":
-		asset_name = "RollerLib.png"
+		asset_name = "OyuncuRolleri/RollerLib.png"
 	elif rol == "fasist":
-		asset_name = "RollerFas.png"
+		asset_name = "OyuncuRolleri/RollerFas.png"
 	elif rol == "hitler":
-		asset_name = "RollerHit.png"
+		asset_name = "OyuncuRolleri/RollerHit.png"
 
 func _partiKartiniAl(rol,oyuncu_id):
 	#Kartları gizlemek için alttaki hala getir
@@ -56,6 +56,13 @@ func _partiKartiniAl(rol,oyuncu_id):
 		#asset_name = "PartiUyeligiArka.png"
 
 	if rol == "liberal":
-		asset_name = "PartiUyeligiLib.png"
+		asset_name = "OyuncuRolleri/PartiUyeligiLib.png"
 	else:
-		asset_name = "PartiUyeligiFas.png"
+		asset_name = "OyuncuRolleri/PartiUyeligiFas.png"
+
+func _oylamaKartiEvetAl():
+	asset_name = "Oylar/OylarEvet.png"
+	
+
+func _oylamaKartiHayirAl():
+	asset_name = "Oylar/OylarHayir.png"
