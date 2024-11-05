@@ -1,8 +1,14 @@
-extends Node2D
+extends Area2D
 #cart sahnesi
 
 @onready var sprite = $Sprite2D
 @export var asset_name: String  # Kartın asset'ini tutar
+
+#Tıklama eventini gerçekleştiren fonksiyon
+func _input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			print("Karta tıklandi")
 
 func _ready():
 	# Önce sprite'ın yüklenmiş olduğundan emin olun
@@ -18,21 +24,19 @@ func _ready():
 	else:
 		print("Texture yüklenemedi veya dosya yolu yanlış:", texture_path)
 
-func _rolKartiniAl(rol):
-	#if oyuncu_index==0:
+func _rolKartiniAl(rol,oyuncu_id):
+	#Kartları gizlemek için alttaki hala getir
+	
+	#if oyuncu_id == 0:
 		#if rol == "liberal":
-			#return "OyuncuRolleri/RollerLib.png"
+			#asset_name = "RollerLib.png"
 		#elif rol == "fasist":
-			#return "OyuncuRolleri/RollerFas.png"
+			#asset_name = "RollerFas.png"
 		#elif rol == "hitler":
-			#return "OyuncuRolleri/RollerHit.png"
+			#asset_name = "RollerHit.png"
 	#else:
-		#if rol == "liberal":
-			#return "OyuncuRolleri/RollerArka.png"
-		#elif rol == "fasist":
-			#return "OyuncuRolleri/RollerArka.png"
-		#elif rol == "hitler":
-			#return "OyuncuRolleri/RollerArka.png"
+		#asset_name = "RollerArka.png"
+
 	if rol == "liberal":
 		asset_name = "RollerLib.png"
 	elif rol == "fasist":
@@ -40,17 +44,17 @@ func _rolKartiniAl(rol):
 	elif rol == "hitler":
 		asset_name = "RollerHit.png"
 
-func _partiKartiniAl(rol):
-	#if oyuncu_index == 0:
+func _partiKartiniAl(rol,oyuncu_id):
+	#Kartları gizlemek için alttaki hala getir
+
+	#if oyuncu_id == 0:
 		#if rol == "liberal":
-			#return "OyuncuRolleri/PartiUyeligiLib.png"
+			#asset_name = "PartiUyeligiLib.png"
 		#else:
-			#return "OyuncuRolleri/PartiUyeligiFas.png"
+			#asset_name = "PartiUyeligiFas.png"
 	#else:
-		#if rol == "liberal":
-			#return "OyuncuRolleri/PartiUyeligiArka.png"
-		#else:
-			#return "OyuncuRolleri/PartiUyeligiArka.png"
+		#asset_name = "PartiUyeligiArka.png"
+
 	if rol == "liberal":
 		asset_name = "PartiUyeligiLib.png"
 	else:

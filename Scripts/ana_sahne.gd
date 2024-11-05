@@ -11,7 +11,8 @@ var eskiBaskanlik:int
 var sansolyelik:int
 var eskiSansolyelik:int
 var Hitler:int 
-var konum = [Vector2(500,550), Vector2(300,100), Vector2(500,100), Vector2(700,100),Vector2(900,100), Vector2(100,300)]
+var konum = [Vector2(500,550), Vector2(300,100), Vector2(500,100), Vector2(700,100), Vector2(900,100),
+ Vector2(100,300), Vector2(300,300), Vector2(500,300), Vector2(700,300), Vector2(900,300)]
 
 func _ready():
 	GameMode = GameModeNode.instantiate()  # GameMode sahnesinden bir örnek oluştur
@@ -21,7 +22,7 @@ func _ready():
 	for i in range(GameManager.game_mode.oyuncuSayisi):
 		var button = load("res://Sceens/button.tscn").instantiate()
 		button.position = konum[i]
-		button.scale = Vector2(0.13, 0.13)
+		button.scale = Vector2(0.1, 0.1)
 		button.oyuncu_id = i  # Zarfın hangi oyuncuya ait olduğunu belirtiyoruz
 		add_child(button)
 		

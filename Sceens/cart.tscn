@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0pysnnlt0hro"]
+[gd_scene load_steps=4 format=3 uid="uid://d0pysnnlt0hro"]
 
 [ext_resource type="Script" path="res://Scripts/cart.gd" id="1_i2psb"]
+[ext_resource type="Texture2D" uid="uid://biqe6sunxnf6l" path="res://SecretHitlerAsset/OyuncuRolleri/RollerLib.png" id="2_1mll4"]
 
-[node name="Cart" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pft2u"]
+size = Vector2(185.391, 63.1943)
+
+[node name="Cart" type="Area2D"]
 script = ExtResource("1_i2psb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1mll4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 4.00003)
+scale = Vector2(3.96999, -16.3306)
+shape = SubResource("RectangleShape2D_pft2u")

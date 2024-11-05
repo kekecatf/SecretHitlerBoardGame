@@ -16,13 +16,17 @@ func oyuncuRollerini_ata():
 	if oyuncuSayisi == 6:
 		Roller = ["liberal", "liberal", "liberal","liberal", "fasist", "hitler"]
 	if oyuncuSayisi == 7:
-		Roller = ["liberal", "liberal", "liberal","liberal","fasist", "fasist", "hitler"]
+		Roller = ["liberal", "liberal", "liberal","liberal","fasist", "fasist",
+		 "hitler"]
 	if oyuncuSayisi == 8:
-		Roller = ["liberal", "liberal", "liberal","liberal","liberal","fasist", "fasist", "hitler"]
+		Roller = ["liberal", "liberal", "liberal","liberal","liberal","fasist",
+		 "fasist", "hitler"]
 	if oyuncuSayisi == 9:
-		Roller = ["liberal", "liberal", "liberal","liberal","liberal","fasist", "fasist", "fasist", "hitler"]
+		Roller = ["liberal", "liberal", "liberal","liberal","liberal","fasist",
+		 "fasist", "fasist", "hitler"]
 	if oyuncuSayisi == 10:
-		Roller = ["liberal", "liberal", "liberal","liberal","liberal","liberal", "fasist", "fasist", "fasist", "hitler"]
+		Roller = ["liberal", "liberal", "liberal","liberal","liberal","liberal",
+		 "fasist", "fasist", "fasist", "hitler"]
 	# Oyuncu rollerini karıştırıp sırasıyla oyunculara atayacak
 	Roller.shuffle()
 	
