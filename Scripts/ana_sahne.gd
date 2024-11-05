@@ -1,6 +1,5 @@
 extends Node2D
 
-#Kart çekme ve kart bırakma yerleri yapılacak
 @onready var GameModeNode = preload("res://Sceens/game_mode.tscn")  # GameMode sahnesini yükle
 var GameMode = null  # GameMode referansı
 
@@ -12,17 +11,18 @@ var eskiBaskanlik:int
 var sansolyelik:int
 var eskiSansolyelik:int
 var Hitler:int 
-var dizi = [Vector2(500,550), Vector2(300,100), Vector2(500,100), Vector2(700,100),Vector2(900,100), Vector2(100,300)]
+var konum = [Vector2(500,550), Vector2(300,100), Vector2(500,100), Vector2(700,100),Vector2(900,100), Vector2(100,300)]
 
 func _ready():
 	GameMode = GameModeNode.instantiate()  # GameMode sahnesinden bir örnek oluştur
 	add_child(GameMode)  # GameMode'u sahneye ekle
 	GameManager.game_mode = GameMode  # Singleton'a GameMode referansı atanıyor
 	
-	for i in range(5):
-		var button = load("res://Sceens/button.tscn").instantiate() 
-		button.position = dizi[i]
-		button.scale = Vector2(0.13,0.13)
+	for i in range(GameManager.game_mode.oyuncuSayisi):
+		var button = load("res://Sceens/button.tscn").instantiate()
+		button.position = konum[i]
+		button.scale = Vector2(0.13, 0.13)
+		button.oyuncu_id = i  # Zarfın hangi oyuncuya ait olduğunu belirtiyoruz
 		add_child(button)
 		
 	GameMode.oyuncuRollerini_ata()
@@ -37,6 +37,7 @@ func _ready():
 
 
 func _process(delta):
+	#Oyunu bitirme koşulları
 	if (fasist_yasa >= 4 and sansolyelik == Hitler) or (fasist_yasa == 6):
 		GameMode.fasistZaferi()
 	elif (liberal_yasa == 6):

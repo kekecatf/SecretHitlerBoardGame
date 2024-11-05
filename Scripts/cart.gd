@@ -13,12 +13,10 @@ func _ready():
 	# asset_name yolunun geçerli bir texture olup olmadığını kontrol edin
 	var texture_path = "res://SecretHitlerAsset/OyuncuRolleri/" + asset_name
 	var texture = load(texture_path)
-
 	if texture:
 		sprite.texture = texture  # Texture'yi TouchScreenButton'a ata
 	else:
 		print("Texture yüklenemedi veya dosya yolu yanlış:", texture_path)
-
 
 func _rolKartiniAl(rol):
 	#if oyuncu_index==0:
