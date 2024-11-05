@@ -60,9 +60,22 @@ func _partiKartiniAl(rol,oyuncu_id):
 	else:
 		asset_name = "OyuncuRolleri/PartiUyeligiFas.png"
 
-func _oylamaKartiEvetAl():
-	asset_name = "Oylar/OylarEvet.png"
+func _oylamaKartiEvetAl(oyuncu_id):
+	#Kartları gizlemek için alttaki hala getir
 	
+	#if oyuncu_id == 0:
+		#asset_name = "Oylar/OylarEvet.png"
+	#else:
+		#asset_name = "Oylar/OylarArka2.png"
+	
+	asset_name = "Oylar/OylarEvet.png"
 
-func _oylamaKartiHayirAl():
+func _oylamaKartiHayirAl(oyuncu_id):
+	#Kartları gizlemek için alttaki hala getir
+	
+	#if oyuncu_id == 0:
+		#asset_name = "Oylar/OylarHayir.png"
+	#else:
+		#asset_name = "Oylar/OylarArka2.png"
+		
 	asset_name = "Oylar/OylarHayir.png"

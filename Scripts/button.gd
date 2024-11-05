@@ -28,13 +28,13 @@ func kart_tiklandi():
 	var oyuncu_id = self.oyuncu_id  # Tıklanan zarfın oyuncu_id'sini alın
 	var oyuncu_rolu = GameManager.game_mode.oyuncuRolleri[oyuncu_id]  # İlgili oyuncunun rolü
 
-	# Rol kartını oluştur
+	# Rol kartını oluşturur
 	var rol_kart = load("res://Sceens/cart.tscn").instantiate()
 	rol_kart.position = son_pozisyon
 	rol_kart.scale = Vector2(0.08, 0.08)
 	rol_kart._rolKartiniAl(oyuncu_rolu,oyuncu_id)  # Rolü atayın
 
-	# Parti kartını oluştur ve rol kartından biraz uzaklaştırarak konumlandır
+	# Parti kartını oluşturur
 	var parti_kart = load("res://Sceens/cart.tscn").instantiate()
 	parti_kart.position = son_pozisyon + Vector2(70, 0)  # Mesafeyi ayarlayın (100 px sağa kaydırdık)
 	parti_kart.scale = Vector2(0.08, 0.08)
@@ -44,13 +44,13 @@ func kart_tiklandi():
 	var oylama_evet_karti = load("res://Sceens/cart.tscn").instantiate()
 	oylama_evet_karti.position = son_pozisyon + Vector2(140,0)
 	oylama_evet_karti.scale = Vector2(0.08,0.08)
-	oylama_evet_karti._oylamaKartiEvetAl()
+	oylama_evet_karti._oylamaKartiEvetAl(oyuncu_id)
 
 	# Oylama hayir kartını oluştur
 	var oylama_hayir_karti = load("res://Sceens/cart.tscn").instantiate()
 	oylama_hayir_karti.position = son_pozisyon + Vector2(210,0)
 	oylama_hayir_karti.scale = Vector2(0.08,0.08)
-	oylama_hayir_karti._oylamaKartiHayirAl()
+	oylama_hayir_karti._oylamaKartiHayirAl(oyuncu_id)
 
 	# Kartları sahneye ekle
 	get_parent().add_child(rol_kart)
