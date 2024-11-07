@@ -12,6 +12,10 @@ func _input_event(viewport, event, shape_idx):
 			
 			if sprite.texture == load("res://SecretHitlerAsset/OyuncuRolleri/RollerLib.png"):
 				print("Liberal kart tiklandi")
+			elif sprite.texture == load("res://SecretHitlerAsset/OyuncuRolleri/RollerFas.png"):
+				print("Fasist kart tiklandi")
+			elif sprite.texture == load("res://SecretHitlerAsset/OyuncuRolleri/RollerHit.png"):
+				print("Hitler kart tiklandi")
 
 func _ready():
 	# Önce sprite'ın yüklenmiş olduğundan emin olun

@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6playa3wg3x3"]
+[gd_scene load_steps=7 format=3 uid="uid://c6playa3wg3x3"]
 
 [ext_resource type="Script" path="res://Scripts/ana_sahne.gd" id="1_2jcdp"]
 [ext_resource type="Texture2D" uid="uid://ca75crnjtjnqy" path="res://SecretHitlerAsset/ArkaPlan/ArkaPlan.jpg" id="2_553ud"]
+[ext_resource type="Texture2D" uid="uid://j667hks7xkcd" path="res://SecretHitlerAsset/PolitikaYerlestirmeBolumu/LiberalTahta1.1.png" id="3_oqh6s"]
+[ext_resource type="Texture2D" uid="uid://dnfq0nvac4y3m" path="res://SecretHitlerAsset/PolitikaYerlestirmeBolumu/FasistTahta1.2.png" id="4_70rfo"]
+[ext_resource type="Texture2D" uid="uid://cgpsxxamjtya0" path="res://SecretHitlerAsset/PolitikaYerlestirmeBolumu/AtmaYeriLib.png" id="5_myn05"]
+[ext_resource type="Texture2D" uid="uid://dbe2lpwoe3lgd" path="res://SecretHitlerAsset/PolitikaYerlestirmeBolumu/CekmeYeriLib.png" id="6_4xfd0"]
 
 [node name="Ana_Sahne" type="Node2D"]
 script = ExtResource("1_2jcdp")
@@ -12,4 +16,24 @@ scale = Vector2(0.27, 0.27)
 texture = ExtResource("2_553ud")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(316, 51)
+position = Vector2(196, 60)
+
+[node name="LiberalTahta1_1" type="Sprite2D" parent="."]
+position = Vector2(550, 213)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("3_oqh6s")
+
+[node name="FasistTahta1_2" type="Sprite2D" parent="."]
+position = Vector2(550, 404)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("4_70rfo")
+
+[node name="AtmaYeriLib" type="Sprite2D" parent="."]
+position = Vector2(847, 236)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("5_myn05")
+
+[node name="CekmeYeriLib" type="Sprite2D" parent="."]
+position = Vector2(252, 236)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("6_4xfd0")
