@@ -10,8 +10,6 @@ var oyuncu_id
 func set_game_mode(mode):
 	game_mode = mode
 
-func _ready():
-	pass
 
 #Tıklama eventini gerçekleştiren fonksiyon
 func _input_event(viewport, event, shape_idx):
