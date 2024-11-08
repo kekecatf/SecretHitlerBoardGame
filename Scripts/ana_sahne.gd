@@ -11,9 +11,10 @@ var eskiBaskanlik:int
 var sansolyelik:int
 var eskiSansolyelik:int
 var Hitler:int 
-var konum = [Vector2(500,550), Vector2(70,80), Vector2(500,100), Vector2(700,100), Vector2(900,100),
+var konum = [Vector2(500,550), Vector2(120,90), Vector2(120,300), Vector2(1000,90), Vector2(1000,300),
  Vector2(100,300), Vector2(300,300), Vector2(500,300), Vector2(700,300), Vector2(900,300)]
-var rotasyon = [0,90,90]
+var rotasyon = [0,90,90,-90,-90,
+-180,-180,-180,90,-90]
 
 func _ready():
 	GameMode = GameModeNode.instantiate()  # GameMode sahnesinden bir örnek oluştur
@@ -24,7 +25,7 @@ func _ready():
 		var button = load("res://Sceens/button.tscn").instantiate()
 		button.position = konum[i]
 		button.scale = Vector2(0.1, 0.1)
-		button.rotation = rotasyon[i]
+		button.rotation_degrees = rotasyon[i]
 		button.oyuncu_id = i  # Zarfın hangi oyuncuya ait olduğunu belirtiyoruz
 		add_child(button)
 		

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://xcvjttk2gv8f"]
+
+[ext_resource type="Script" path="res://Scripts/politika_karti.gd" id="1_1tcgj"]
+[ext_resource type="Texture2D" uid="uid://c17agsjifgrpc" path="res://SecretHitlerAsset/Politikalar/PolitikaArka.png" id="1_wiwqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whhio"]
+size = Vector2(700, 1021)
+
+[node name="PolitikaKarti" type="Area2D"]
+scale = Vector2(0.08, 0.08)
+script = ExtResource("1_1tcgj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wiwqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_whhio")
