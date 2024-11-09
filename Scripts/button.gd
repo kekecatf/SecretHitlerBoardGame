@@ -11,7 +11,6 @@ var rotasyon = [0,90,90,-90,-90]
 func set_game_mode(mode):
 	game_mode = mode
 
-
 #Tıklama eventini gerçekleştiren fonksiyon
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
