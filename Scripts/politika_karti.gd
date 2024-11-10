@@ -2,7 +2,6 @@ extends Area2D
 
 @onready var sprite = $Sprite2D
 var hedef_konum = Vector2(500, 300)  # Kartın gitmesini istediğiniz sabit hedef konum
-var hedefe_gitti = true  
 var is_original = true  # Orijinal kartı işaretlemek için değişken
 
 var politikalar = ["liberal politika","liberal politika","liberal politika",
@@ -23,7 +22,7 @@ func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		print("politika karti tiklandi")
 		
-		if hedefe_gitti and is_original:
+		if is_original:
 			# Sadece orijinal kart için Tween nesnesi oluşturuyoruz
 			var tween = create_tween()
 			tween.connect("finished", Callable(self, "_on_tween_finished"))
@@ -32,7 +31,16 @@ func _input_event(viewport, event, shape_idx):
 			tween.tween_property(self, "position", hedef_konum, 1)
 			tween.tween_property(self, "scale", Vector2(0.2, 0.2), 1)
 			# Hedefe gitme durumunu tersine çeviriyoruz
-			hedefe_gitti = !hedefe_gitti  
+		else:
+			# Tıklanan kartın görselini güncellemek için yeni bir görsel yol belirleyin
+			var yeni_gorsel = "res://SecretHitlerAsset/Politikalar/PolitikaArka.png"  # Yeni sprite yolu
+			sprite.texture = load(yeni_gorsel)
+
+			# Kartın yeni konuma gitmesini sağla
+			var yeni_konum = Vector2(846, 230)  # Belirlediğiniz yeni konum
+			var tween = create_tween()
+			tween.tween_property(self, "position", yeni_konum, 1)
+			tween.tween_property(self, "scale", Vector2(0.08, 0.08), 1)
 
 # Tween tamamlandığında çağrılacak fonksiyon
 func _on_tween_finished():
@@ -49,21 +57,5 @@ func _on_tween_finished():
 
 				# Sprite'ın görselini güncelle
 				new_kart.get_node("Sprite2D").texture = load(kart_gorsel_yolu)
-				# Tıklanabilir hale getirme ve animasyonu tetikleme
-				new_kart.connect("input_event", Callable(self, "_on_card_clicked"))
 				
 				get_parent().add_child(new_kart)  # Kartı sahneye ekle
-				hedefe_gitti = false  # Orijinal destenin bir daha tıklanmamasını sağla
-
-
-# Ekrana çıkan üç karttan birine tıklanınca çağrılacak fonksiyon
-func _on_card_clicked(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		# Tıklanan kartın görselini güncellemek için yeni bir görsel yol belirleyin
-		var yeni_gorsel = "res://SecretHitlerAsset/Politikalar/PolitikaArka.png"  # Yeni sprite yolu
-		sprite.texture = load(yeni_gorsel)
-
-		# Kartın yeni konuma gitmesini sağla
-		var yeni_konum = Vector2(847,232)  # Belirlediğiniz yeni konum
-		var tween = create_tween()
-		tween.tween_property(self, "position", yeni_konum, 1)
