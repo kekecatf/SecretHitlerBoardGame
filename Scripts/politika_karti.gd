@@ -1,8 +1,10 @@
 extends Area2D
 
 @onready var sprite = $Sprite2D
+var ana_sahne = load("res://Sceens/ana_sahne.tscn")
 var hedef_konum = Vector2(500, 300)  # Kartın gitmesini istediğiniz sabit hedef konum
 var is_original = true  # Orijinal kartı işaretlemek için değişken
+var sansolye_ornek_konum = Vector2(500,50)
 
 var politikalar = ["liberal politika", "liberal politika", "liberal politika",
 "liberal politika", "liberal politika", "liberal politika",
@@ -24,7 +26,7 @@ func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		print("politika karti tiklandi")
 		
-		if position == Vector2(250, 230):
+		if position == Vector2(250, 230) and GameManager.kartlar_ortaya_geldimi == false:
 			# Sadece orijinal kart için Tween nesnesi oluşturuyoruz
 			var tween = create_tween()
 			tween.connect("finished", Callable(self, "_on_tween_finished"))
@@ -32,20 +34,29 @@ func _input_event(viewport, event, shape_idx):
 			# Hedef konuma hareket ve ölçek ayarı
 			tween.tween_property(self, "position", hedef_konum, 1)
 			tween.tween_property(self, "scale", Vector2(0.2, 0.2), 1)
+			GameManager.kartlar_ortaya_geldimi = true
 			
-		elif GameManager.atilacak_kart_secildimi == false:
+		elif GameManager.atilacak_kart_secildimi == false and GameManager.sansolyeye_verilecek_kart_secildimi == false and GameManager.kartlar_ortaya_geldimi == true:
 			# Tıklanan kartın görselini güncellemek için yeni bir görsel yol belirleyin
 			var yeni_gorsel = "res://SecretHitlerAsset/Politikalar/PolitikaArka.png"  # Yeni sprite yolu
 			sprite.texture = load(yeni_gorsel)
-
 			# Kartın yeni konuma gitmesini sağla
 			var yeni_konum = Vector2(846, 230)  # Belirlediğiniz yeni konum
 			var tween = create_tween()
-			print(GameManager.atilacak_kart_secildimi)
-			GameManager.atilacak_kart_secildimi = true  # Kart seçildi olarak işaretleniyor
-			print(GameManager.atilacak_kart_secildimi)
 			tween.tween_property(self, "position", yeni_konum, 1)
 			tween.tween_property(self, "scale", Vector2(0.08, 0.08), 1)
+			GameManager.atilacak_kart_secildimi = true  # Kart seçildi olarak işaretleniyor
+
+		elif GameManager.atilacak_kart_secildimi == true and GameManager.sansolyeye_verilecek_kart_secildimi == false and GameManager.kartlar_ortaya_geldimi == true:
+			# Tıklanan kartın görselini güncellemek için yeni bir görsel yol belirleyin
+			var yeni_gorsel = "res://SecretHitlerAsset/Politikalar/PolitikaArka.png"  # Yeni sprite yolu
+			sprite.texture = load(yeni_gorsel)
+			# Kartın yeni konuma gitmesini sağla
+			var yeni_konum = sansolye_ornek_konum  # Belirlediğiniz yeni konum
+			var tween = create_tween()
+			tween.tween_property(self, "position", yeni_konum, 1)
+			tween.tween_property(self, "scale", Vector2(0.08, 0.08), 1)
+			#GameManager.sansolyeye_verilecek_kart_secildimi = true
 
 # Tween tamamlandığında çağrılacak fonksiyon
 func _on_tween_finished():
