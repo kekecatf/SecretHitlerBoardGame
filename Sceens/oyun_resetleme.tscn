@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://2uqnwjl5udg4"]
+
+[ext_resource type="Script" path="res://Scripts/oyun_resetleme.gd" id="1_uwr77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vo4eo"]
+size = Vector2(163.5, 82)
+
+[node name="Oyun_Resetleme" type="Area2D"]
+script = ExtResource("1_uwr77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vo4eo")
+
+[node name="Label" type="Label" parent="CollisionShape2D"]
+offset_left = -56.5
+offset_top = -17.0
+offset_right = 56.5
+offset_bottom = 6.0
+text = "Oyunu Resetle"
