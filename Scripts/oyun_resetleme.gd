@@ -9,5 +9,6 @@ func _ready() -> void:
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
+			GameManager.resetGlobal()
 			get_tree().reload_current_scene()
 			print("Oyun resetlendi")

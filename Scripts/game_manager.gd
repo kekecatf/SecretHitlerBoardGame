@@ -12,3 +12,10 @@ func sansolyeye_verilecek_kart():
 		sansolyeye_verilecek_kart_secildimi = true
 	else:
 		sansolyeye_verilecek_kart_secildimi = false
+
+func resetGlobal():
+	game_mode = null
+	kartlar_ortaya_geldimi = false
+	atilacak_kart_secildimi = false
+	sansolyeye_verilecek_kart_secildimi = false
+	change_count = 0
