@@ -5,7 +5,7 @@ var ana_sahne = load("res://Sceens/ana_sahne.tscn")
 var hedef_konum = Vector2(500, 300)  # Kartın gitmesini istediğiniz sabit hedef konum
 var is_original = true  # Orijinal kartı işaretlemek için değişken
 var sansolye_ornek_konum = Vector2(500,50)
-
+var is_tweening = false  # Hareket sırasında tıklamayı devre dışı bırakacak bayrak
 var politikalar = ["liberal politika", "liberal politika", "liberal politika",
 "liberal politika", "liberal politika", "liberal politika",
 "fasist politika", "fasist politika", "fasist politika", "fasist politika",
@@ -23,7 +23,9 @@ func _ready():
 # Tıklama eventini gerçekleştiren fonksiyon
 func _input_event(viewport, event, shape_idx):
 	# Kart seçildiyse başka kartların etkileşim almasını engelle
-
+	if is_tweening:
+		return
+	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		print("politika karti tiklandi")
 		
@@ -36,10 +38,12 @@ func _input_event(viewport, event, shape_idx):
 			# Hedef konuma hareket ve ölçek ayarı
 			tween.tween_property(self, "position", hedef_konum, 1)
 			tween.tween_property(self, "scale", Vector2(0.2, 0.2), 1)
-			GameManager.kartlar_ortaya_geldimi = true
+			is_tweening = true  # Tween işlemi başlatılıyor
 			
 		#atmak istenilen kartı seçme
 		elif position != Vector2(500,50) and GameManager.atilacak_kart_secildimi == false and GameManager.sansolyeye_verilecek_kart_secildimi == false and GameManager.kartlar_ortaya_geldimi == true:
+			if is_tweening:  # Eğer tween işlemi devam ediyorsa tıklama işlevini iptal et
+				return
 			# Tıklanan kartın görselini güncellemek için yeni bir görsel yol belirleyin
 			var yeni_gorsel = "res://SecretHitlerAsset/Politikalar/PolitikaArka.png"  # Yeni sprite yolu
 			sprite.texture = load(yeni_gorsel)
@@ -48,6 +52,8 @@ func _input_event(viewport, event, shape_idx):
 			var tween = create_tween()
 			tween.tween_property(self, "position", yeni_konum, 1)
 			tween.tween_property(self, "scale", Vector2(0.08, 0.08), 1)
+			is_tweening = true  # Tween işlemi başlatılıyor
+			tween.connect("finished", Callable(self, "_on_tween_finished_atilacak_kart"))
 			GameManager.atilacak_kart_secildimi = true  # Kart seçildi olarak işaretleniyor
 		
 		#kartları şansolyeye verme
@@ -64,6 +70,7 @@ func _input_event(viewport, event, shape_idx):
 
 # Tween tamamlandığında çağrılacak fonksiyon
 func _on_tween_finished():
+	is_tweening = false  # Tween işlemi bitti, tıklama yeniden aktif
 	queue_free()
 
 	# Üstteki 3 kartı çek ve göster
@@ -79,3 +86,8 @@ func _on_tween_finished():
 		new_kart.get_node("Sprite2D").texture = load(kart_gorsel_yolu)
 		
 		get_parent().add_child(new_kart)  # Kartı sahneye ekle
+		GameManager.kartlar_ortaya_geldimi = true
+
+# Tween tamamlandığında çağrılacak yeni fonksiyon
+func _on_tween_finished_atilacak_kart():
+	is_tweening = false  # Tween işlemi bitti, tıklama yeniden aktif
