@@ -19,7 +19,7 @@ scale = Vector2(0.27, 0.27)
 texture = ExtResource("2_553ud")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(170, 50)
+position = Vector2(500, 500)
 
 [node name="LiberalTahta1_1" type="Sprite2D" parent="."]
 position = Vector2(550, 213)
@@ -49,3 +49,6 @@ position = Vector2(346, 79)
 
 [node name="Oyun_Resetleme" parent="." instance=ExtResource("9_2v7f4")]
 position = Vector2(837, 59)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(600, 600)
