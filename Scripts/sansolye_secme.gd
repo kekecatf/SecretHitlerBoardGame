@@ -3,13 +3,14 @@ extends Area2D
 # Sürükleme kontrolü için değişkenler
 var is_dragging = false
 var offset = Vector2()
+
 # Oyuncu alanlarının tanımı
 var oyuncu_alanlari = [
-	Rect2(Vector2(500, 500), Vector2(605, 600)),  # Oyuncu 1'in alanı
-	Rect2(Vector2(60, 50), Vector2(160, 155)),  # Oyuncu 2'nin alanı
-	Rect2(Vector2(60, 160), Vector2(160, 265)),  # Oyuncu 3'ün alanı
-	Rect2(Vector2(950, 50), Vector2(1050, 155)),  # Oyuncu 4'ün alanı
-	Rect2(Vector2(950, 160), Vector2(1050, 265)),  # Oyuncu 5'in alanı
+	Rect2(Vector2(500, 500), Vector2(105, 100)),  # Oyuncu 1'in alanı
+	Rect2(Vector2(60, 50), Vector2(100, 105)),    # Oyuncu 2'nin alanı
+	Rect2(Vector2(60, 160), Vector2(100, 105)),   # Oyuncu 3'ün alanı
+	Rect2(Vector2(950, 50), Vector2(100, 105)),   # Oyuncu 4'ün alanı
+	Rect2(Vector2(950, 160), Vector2(100, 105)),  # Oyuncu 5'in alanı
 	Rect2(Vector2(830, 600), Vector2(130, 135)),  # Oyuncu 6'nın alanı
 	Rect2(Vector2(1050, 320), Vector2(130, 135)), # Oyuncu 7'nin alanı
 	Rect2(Vector2(1250, 400), Vector2(130, 130)), # Oyuncu 8'in alanı
@@ -17,7 +18,7 @@ var oyuncu_alanlari = [
 	Rect2(Vector2(1600, 700), Vector2(130, 130))  # Oyuncu 10'un alanı
 ]
 
-#Surukleme islevi
+# Sürükleme işlemi
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -35,8 +36,25 @@ func _input_event(viewport, event, shape_idx):
 
 # Belirlenen alanlarda olup olmadığını kontrol et
 func kontrol_alana_birakildi():
-	for alan in oyuncu_alanlari:
-		if alan.has_point(global_position):
-			print("Oyuncu alanına bırakıldı: ", alan)
+	for i in range(oyuncu_alanlari.size()):
+		if oyuncu_alanlari[i].has_point(global_position):
+			print("Nesne Oyuncu %d'nin alanına bırakıldı!" % (i + 1))
+			islem_oyuncu_alanina_gore(i + 1)
 			return
 	print("Geçerli bir alana bırakılmadı.")
+
+# Oyuncu alanına göre işlem yapma
+func islem_oyuncu_alanina_gore(oyuncu_no):
+	match oyuncu_no:
+		1:
+			print("Oyuncu 1 için özel işlem yapılıyor!")
+			# Buraya oyuncu 1 için yapılacak işlemi ekleyin
+		2:
+			print("Oyuncu 2 için özel işlem yapılıyor!")
+			# Buraya oyuncu 2 için yapılacak işlemi ekleyin
+		3:
+			print("Oyuncu 3 için özel işlem yapılıyor!")
+			# Buraya oyuncu 3 için yapılacak işlemi ekleyin
+		# Diğer oyuncular için devam edin
+		_:
+			print("Bu oyuncu için henüz işlem tanımlanmamış.")

@@ -11,8 +11,19 @@ var eskiBaskanlik:int
 var sansolyelik:int
 var eskiSansolyelik:int
 var Hitler:int 
-var konum = [Vector2(500,550), Vector2(120,90), Vector2(120,300), Vector2(1000,90), Vector2(1000,300),
- Vector2(100,300), Vector2(300,300), Vector2(500,300), Vector2(700,300), Vector2(900,300)]
+
+var konum = [
+	Vector2(500,550), #Oyuncu1 
+	Vector2(120,90),  #Oyuncu2
+	Vector2(120,300), #Oyuncu3
+	Vector2(1000,90), #Oyuncu4
+	Vector2(1000,300),#Oyuncu5
+	Vector2(100,300), #Oyuncu6
+	Vector2(300,300), #Oyuncu7
+	Vector2(500,300), #Oyuncu8
+	Vector2(700,300), #Oyuncu9
+	Vector2(900,300), #Oyuncu10
+	]
 var rotasyon = [0,90,90,-90,-90,
 -180,-180,-180,90,-90]
 
