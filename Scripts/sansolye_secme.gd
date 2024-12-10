@@ -9,8 +9,8 @@ var oyuncu_alanlari = [
 	Rect2(Vector2(500, 500), Vector2(600, 600)),  # Oyuncu 1'in alanı
 	Rect2(Vector2(60, 50), Vector2(160, 150)),    # Oyuncu 2'nin alanı
 	Rect2(Vector2(60, 200), Vector2(160, 300)),   # Oyuncu 3'ün alanı
-	Rect2(Vector2(950, 50), Vector2(1050, 1150)),   # Oyuncu 4'ün alanı
-	Rect2(Vector2(950, 200), Vector2(1050, 1300)),  # Oyuncu 5'in alanı
+	Rect2(Vector2(950, 50), Vector2(1050, 150)),   # Oyuncu 4'ün alanı
+	Rect2(Vector2(950, 200), Vector2(1050, 300)),  # Oyuncu 5'in alanı
 	Rect2(Vector2(830, 600), Vector2(130, 135)),  # Oyuncu 6'nın alanı
 	Rect2(Vector2(1050, 320), Vector2(130, 135)), # Oyuncu 7'nin alanı
 	Rect2(Vector2(1250, 400), Vector2(130, 130)), # Oyuncu 8'in alanı

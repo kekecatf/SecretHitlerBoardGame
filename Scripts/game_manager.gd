@@ -5,6 +5,8 @@ var kartlar_ortaya_geldimi = false
 var atilacak_kart_secildimi = false
 var sansolyeye_verilecek_kart_secildimi = false
 var change_count = 0
+var liberal_yasa:int
+var fasist_yasa:int
 
 func sansolyeye_verilecek_kart():
 	change_count += 1

@@ -3,8 +3,6 @@ extends Node2D
 @onready var GameModeNode = preload("res://Sceens/game_mode.tscn")  # GameMode sahnesini yükle
 var GameMode = null  # GameMode referansı
 
-var liberal_yasa:int
-var fasist_yasa:int
 
 var baskanlik:int
 var eskiBaskanlik:int
@@ -53,7 +51,7 @@ func _ready():
 
 func _process(delta):
 	#Oyunu bitirme koşulları
-	if (fasist_yasa >= 4 and sansolyelik == Hitler) or (fasist_yasa == 6):
+	if (GameManager.fasist_yasa >= 4 and sansolyelik == Hitler) or (GameManager.fasist_yasa == 6):
 		GameMode.fasistZaferi()
-	elif (liberal_yasa == 6):
+	elif (GameManager.liberal_yasa == 6):
 		GameMode.liberalZaferi()
