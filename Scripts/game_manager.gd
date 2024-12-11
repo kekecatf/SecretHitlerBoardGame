@@ -5,10 +5,14 @@ var kartlar_ortaya_geldimi = false
 var atilacak_kart_secildimi = false
 var sansolyeye_verilecek_kart_secildimi = false
 var change_count = 0
+
 var liberal_yasa:int
 var fasist_yasa:int
+var baskanlik:int
+var sansolyelik:int
+var Hitler:int
 
-func sansolyeye_verilecek_kart():
+func sansolyeye_verilecek_kart_kontrolu():
 	change_count += 1
 	if change_count == 2:
 		sansolyeye_verilecek_kart_secildimi = true

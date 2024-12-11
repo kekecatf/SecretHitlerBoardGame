@@ -66,7 +66,7 @@ func _input_event(viewport, event, shape_idx):
 			var tween = create_tween()
 			tween.tween_property(self, "position", yeni_konum, 1)
 			tween.tween_property(self, "scale", Vector2(0.08, 0.08), 1)
-			GameManager.sansolyeye_verilecek_kart()
+			GameManager.sansolyeye_verilecek_kart_kontrolu()
 
 # Tween tamamlandığında çağrılacak fonksiyon
 func _on_tween_finished():
